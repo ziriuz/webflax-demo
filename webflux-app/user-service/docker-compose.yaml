@@ -1,0 +1,23 @@
+version: "3"
+services:
+  postgres:
+    image: postgres
+    container_name: postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=userdb
+    volumes:
+      - /d/db/postgres_data/userdb:/var/lib/postgresql/data
+    ports:
+      - 7432:5432
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=serjpax@gmail.com
+      - PGADMIN_DEFAULT_PASSWORD=271375
+    volumes:
+      - /d/db/pgadmin:/var/lib/pgadmin
+    ports:
+      - 7080:80
